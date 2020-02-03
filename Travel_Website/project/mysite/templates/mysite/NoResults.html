@@ -1,0 +1,10 @@
+{% extends "mysite/base.html" %}
+
+<body>
+{% block content %}
+<br>
+<div class='container'>
+There are no results for your query. Please try again. Click <a href="{% url 'search' %}"> here </a> to return to the search page.
+</div>
+{% endblock %}
+</body>

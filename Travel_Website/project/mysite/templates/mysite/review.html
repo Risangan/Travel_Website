@@ -1,0 +1,28 @@
+{% extends "mysite/base.html" %}
+{%  block content %}
+<br>
+<div class='container'>
+This is your review
+<h2>
+{{ country }} {{ title }}
+<br><br>
+</h2>
+{{ country_review }}
+
+<!--links from https://github.com/codingforentrepreneurs/Guides/blob/master/all/social_share_links.md -->
+
+<br><br> Share on:
+<a href="https://www.facebook.com/sharer/sharer.php?u={{ request.build_absolute_uri }}">
+Facebook
+</a>
+
+<a href="https://twitter.com/home?status={{ share_string }}%20{{ request.build_absolute_uri }}">
+Twitter
+</a>
+
+<a href="http://www.reddit.com/submit?url={{ request.build_absolute_uri }}&title={{ share_string }}.">Reddit</a>
+</div>
+{% endblock %}
+
+
+

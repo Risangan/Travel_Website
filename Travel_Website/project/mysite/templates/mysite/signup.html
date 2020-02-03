@@ -1,0 +1,66 @@
+{% extends "mysite/base.html" %}
+
+<body>
+{% block content %}
+<br>
+<div class='container'>
+<h1> Sign up </h1>
+<form method = 'POST' action = "{% url 'signedup' %}" onsubmit="return validate()">
+{% csrf_token %}
+Username <input type='text' maxlength=16 id='username' name='username'><br><br>
+Password <input type='password' maxlength=16 id='password' name='password'><br><br>
+Confirm Password <input type='password' maxlength=16 id='confirmpassword' name='confirmpassword'><br><br>
+<button type='submit'>Sign up</button>
+</form>
+
+<script type="text/javascript">
+    function validate(){
+        var username = document.getElementById('username');
+        var password = document.getElementById('password');
+        var confirmpassword = document.getElementById('confirmpassword');
+
+                    if(username.value==""){
+                        window.alert("Username must be entered to complete signup")
+                        username.focus();
+                        return false;
+                    }
+                    
+                    if(username.value.length<4){
+                        window.alert("Username must be atleast 4 characters long")
+                        username.focus();
+                        return false;
+                    }
+                    
+                    if(password.value==""){
+                        window.alert("Password must be entered to complete signup")
+                        password.focus();
+                        return false;
+                    }
+                    
+                    if(password.value.length<4){
+                        window.alert("Password must be atleast 4 characters long")
+                        password.focus();
+                        return false;
+                    }
+
+                    if(confirmpassword.value==""){
+                        window.alert("Confirm password must be filled out")
+                        password.focus();
+                        return false;
+                    }
+
+                    if(password.value != confirmpassword.value){
+                        window.alert("Password must match confirm password")
+                        password.focus();
+                        return false;
+                    }
+
+
+    return true;
+}
+</script>
+</div>
+{% endblock %}
+</body>
+
+

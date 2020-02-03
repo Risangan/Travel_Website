@@ -1,0 +1,14 @@
+{% extends "mysite/base.html" %}
+
+<body>
+{% block content %}
+<br>
+<div class='container'>
+<h2>Click to see the reviews for {{ country }}</h2>
+{% for review in reviews %}
+    <p><a href="{% url 'view_review' review.id %}"> {{ review.title }} </a></p>
+{% endfor %}
+</div>
+{% endblock %}
+</body>
+
